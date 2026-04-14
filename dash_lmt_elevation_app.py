@@ -178,8 +178,8 @@ def build_figure(
                 y=alt,
                 mode="lines",
                 name=src.name,
-                line={"width": 1.0},
-                opacity=0.25,
+                line={"width": 1.2},
+                opacity=0.75,
                 customdata=[[src.name, src.flux_jy]] * len(utc_datetimes),
                 hovertemplate="%{customdata[0]}<br>Flux=%{customdata[1]:.3f} Jy<br>UTC=%{x|%Y-%m-%d %H:%M}<br>El=%{y:.1f} deg<extra></extra>",
             )
@@ -375,8 +375,8 @@ def render_with_hover_highlight(base_fig_data, hover_data):
     num_source_traces = int((fig.layout.meta or {}).get("num_source_traces", 0))
 
     for i in range(num_source_traces):
-        fig.data[i].line.width = 1.0
-        fig.data[i].opacity = 0.25
+        fig.data[i].line.width = 1.2
+        fig.data[i].opacity = 0.75
 
     if hover_data and hover_data.get("points"):
         curve_idx = hover_data["points"][0].get("curveNumber")
